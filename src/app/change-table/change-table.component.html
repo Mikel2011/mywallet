@@ -1,0 +1,55 @@
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">State</th>
+        <th scope="col">Title</th>
+        <th scope="col">Price</th>
+        <th scope="col">Date</th>
+        <th scope="col">Delete/Edit</th>
+    
+      </tr>
+    </thead>
+  <!--    My filter:  income:UsersService.check -->
+    <tbody>
+       
+      <tr *ngFor="let user of UsersService.arrCharges | filter:UsersService.search ; let t=index;">
+        <th scope="row">{{t}}</th> 
+        <td><div class="box inc" *ngIf="this.user.check" ><i class="fas fa-arrow-circle-up"></i> Income</div>
+          <div class="  box exs"  *ngIf="!this.user.check" ><i class="fas fa-arrow-circle-down"></i> Exspense</div>
+        </td>
+        <td>{{user.title|titlecase }}</td>
+        <td>{{user.price| currency }}</td>
+        <td>{{ user.date | date: 'dd/MM/yyyy' }}</td>
+            <td>
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <button type="button" data-toggle="modal" data-target="#exampleModa" class="btn btn-danger"  (click)="areYouSureDelete(user)" >Delete</button>
+                
+                    <button type="button"   (click)="editTitle(user)" data-toggle="modal" data-target="#exampleModal" class="btn btn-warning" >Edit</button>
+                  </div>
+            </td>
+      </tr>
+    </tbody>
+  </table> 
+</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModa" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"></h5>
+        <button type="button"  class="close" data-dismiss="modal" aria-label="Close" #closewindow >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+    <h4>Do you want realy delete your coment?</h4>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="deleteTitle()" data-dismiss="modal">Yes</button>
+        <button type="button" class="btn btn-danger" (click)="closeWindow()" >No</button>
+      </div>
+    </div>
+  </div>
+</div>

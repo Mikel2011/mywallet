@@ -1,0 +1,64 @@
+.btn{
+    margin: 5px;
+}
+
+.modal-wnd{
+    padding: 10px;
+}
+.labl{
+    font-weight: 500;
+    font-size: 20px;
+    margin: 10px;
+}
+.labl_g{
+    color: green;
+    font-weight: 500;
+    font-size: 22px;
+    margin: 10px;
+}
+.labl_r{
+    color:red;
+    font-weight: 500;
+    font-size: 22px;
+    margin: 10px;
+}
+.income{
+    height: 45px;
+    width: 100%;
+    background-color: green;
+}
+.exspense{
+    height: 45px;
+    width: 100%;
+    background-color: red;
+}
+
+.plus{
+    color:green;
+}
+.minus{
+    color: red;
+}
+
+
+input{
+    &.ng-invalid.ng-touched{
+        border: 2px solid red;
+    }
+    &.ng-valid.ng-touched{
+        border: 2px solid green;
+}
+}
+
+.eror{
+    margin-top: 5px;
+    color: red;
+}
+.mat-radio-button ~ .mat-radio-button {
+    margin-left: 16px;
+  }
+
+  .h4{
+      text-align: center;
+      margin-left: 200px;
+  }

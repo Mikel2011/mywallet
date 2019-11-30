@@ -1,0 +1,39 @@
+<div class="u-header container-fluid ">
+  <div class="balance">
+    <p>My balance: {{this.UsersService.counterL | currency}}  </p>
+  
+    <span class="plus">Income</span>
+    <span>/</span>
+    <span class="minus">Exspense</span><br>
+    <span>+</span>
+    <span>/</span>
+    <span> -</span>
+  </div>
+ 
+  <div class="foto">
+    <img
+      src="https://image.flaticon.com/icons/svg/60/60484.svg"
+      alt="..." class="img-thumbnail rounded  " />
+  </div>
+</div>
+<div class="sort">
+<div class="search">
+    <label  class="search-text"> Search: </label>
+    <input class="form-control form-control-sm" type="text" [(ngModel)]="UsersService.search" placeholder="search...">
+</div>
+
+<div class="sortable">
+  <div class="gr_btn">
+  <button  class="btn btn-success byInc"  (click)="UsersService.byIncome()"  > Income</button>
+  <button class="btn btn-danger byExs"  (click)="UsersService.byExspense()" > Exspense</button>
+  <button  class="btn btn-primary byList"   (click)="UsersService.byList()" >All list</button>
+</div> </div> 
+<div class="third">
+    <div class="btn-add">
+        <button type="button" class="btn-add-us btn " data-toggle="modal" data-target="#exampleModal">Add <i
+            class='fas fa-plus'></i></button>
+      </div>
+</div>
+</div>
+
+

@@ -1,0 +1,29 @@
+<div class="container-fluid"  >
+  <div class="block-info"  data-aos="zoom-in-left" >
+    <div class="block-details-img">
+      <img src="https://i-love-png.com/images/administrator-male_4059.png"    />
+    </div>
+    <div  >
+      <p>
+        <span class="detailInfo">Company: </span>{{ UsersService.thisDetailUser.company }}
+      </p>
+      <p>
+        <span class="detailInfo">UserName: </span>{{ UsersService.thisDetailUser.username }}
+      </p>
+      <p>
+        <span class="detailInfo">Phone: </span>{{ UsersService.thisDetailUser.phone }}
+      </p>
+      <p>
+        <span class="detailInfo">Role: </span>{{ UsersService.thisDetailUser.role | uppercase }}
+      </p>
+      <p>
+        <span class="detailInfo">Cell: </span>{{ UsersService.thisDetailUser.cell }}
+      </p>
+      <p>
+        <span class="detailInfo">Password: </span>{{ UsersService.thisDetailUser.password }}
+      </p>
+
+      <button class="btn btn-danger" (click)="return()">Return</button>
+    </div>
+  </div>
+</div>

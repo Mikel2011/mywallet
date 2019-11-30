@@ -1,0 +1,83 @@
+.u-header{
+    background-color:powderblue;
+    display: flex;
+    justify-content: space-around;
+}
+span{
+    font-size: 34px;
+    font-weight: 500;
+}
+p{
+    font-size: 40px;
+    font-weight: 500;
+    color:black;
+}
+.balance{
+    margin: 45px;
+}
+.foto{
+    margin: 5px;
+}
+.plus{
+    color:green;
+}
+.minus{
+    color: red;
+}
+.btn-add{
+    margin-top: 10px;
+}
+.btn-add-us{
+    font-size:24px;
+    font-weight: 800;
+    color: red;
+    background-color: rgb(97, 206, 106);
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+}
+.btn-add-us:hover{
+    background-color: green;
+    color: red;
+}
+.search{
+    display: flex;
+    margin: 120px 80px 5px 190px;
+}
+.search-text{
+    font-size: 22px;
+    font-weight: 500;
+    margin-right: 10px;
+}
+.sort{
+    height: 200px;
+    width: 100%;
+    background-color:powderblue ;
+    display: flex;
+    
+}
+.sortable{
+    height: 200px;
+    width: 400px;
+    display: flex;
+}
+.third{
+    margin-top: 75px;
+    margin-left: 20px;
+}
+button{
+    height: 40px;
+    width: 100px;
+    margin: 0px 5px 0px 5px;
+
+}
+.rounded{
+    margin-top: 20px;
+    border-radius: 50%;
+    background-color:powderblue ;
+    width: 220px;
+    height: 220px;
+}
+.gr_btn{
+    margin-top: 120px;
+}

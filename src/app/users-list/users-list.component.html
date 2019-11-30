@@ -1,0 +1,20 @@
+<div class="container-fluid mt-2 justify-post">
+  <div class="user" *ngFor="let post of userlist">
+    <img
+      src="https://i-love-png.com/images/administrator-male_4059.png"
+      alt=""
+    />
+
+    <h4>{{ post.company }}</h4>
+
+    <button
+      class="btn btn-primary"
+      style="width:97%"
+      [routerLink]="['/user-list', post.id]"
+      routerLinkActive="router-link-active"
+      (click)="userservis.moreDetails(post)"
+    >
+      More info...
+    </button>
+  </div>
+</div>

@@ -1,0 +1,153 @@
+
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header"> <h3 class="h4">Description</h3>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+          #closeSave>
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      
+      <form class="modal-wnd" [formGroup]="form" >
+        <div>
+          <mat-radio-group aria-label="Select an option">
+            <label for="Incom" class="labl_g " *ngIf="UsersService.check"
+              ><span>Income</span></label
+            >
+            <label for="Incom" class="labl_g " *ngIf="!UsersService.check"
+              >Income</label
+            >
+            <mat-radio-button
+              value="1"
+              (click)="UsersService.checkIncome()"
+              name="Income"
+            ></mat-radio-button>
+            
+            <mat-radio-button
+              value="2"
+              (click)="UsersService.checkExspense()"
+              name="Exspense"
+            ></mat-radio-button>
+            <label for="Exspense" class="labl_r   " *ngIf="UsersService.check"
+              >Exspense</label
+            >
+            <label for="Exspense" class="labl_r  " *ngIf="!UsersService.check"
+              >Exspense</label
+            >
+          </mat-radio-group>
+        </div>
+
+        <div class="form-group">
+          <label class="labl" for="userTitle">Post</label>
+          <input
+            [(ngModel)]="UsersService.title"
+            formControlName="userTitle"
+            name="userTitle"
+            class="form-control"
+            id="userTitle"
+            placeholder="Write here"
+          />
+          <div
+            *ngIf="
+              form.get('userTitle').invalid && form.get('userTitle').touched
+            "
+          >
+            <p class="eror" *ngIf="form.get('userTitle').errors">
+              Please fill in the input field!
+            </p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="labl" for="userPrice">Price</label>
+          <input
+            [(ngModel)]="UsersService.price"
+            formControlName="userPrice"
+            name="userPrice"
+            class="form-control"
+            placeholder="Price"
+          />
+          <div
+            *ngIf="
+              form.get('userPrice').invalid && form.get('userPrice').touched
+            "
+          >
+            <p class="eror" *ngIf="form.get('userPrice').errors">
+              Please fill in the input field!
+            </p>
+          </div>
+        </div>
+        <!-- <app-calendar></app-calendar> -->
+        <div class="form-group">
+          <label class="labl">Date</label>
+          <div class="row">
+            <div class="col-xs-12 col-12 col-md-4 form-group">
+              <input
+                type="text"
+                [(ngModel)]="UsersService.date"
+                formControlName="userData"
+                name="userDate"
+                placeholder="Date"
+                class="form-control"
+                bsDatepicker
+              />
+            </div>
+            <div
+              *ngIf="
+                form.get('userData').invalid && form.get('userData').touched
+              "
+            >
+              <p class="eror" *ngIf="form.get('userData').errors">
+                Please choose the date!
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-dismiss="modal"
+            #closeModel
+          >
+            Close
+          </button>
+          <button
+            *ngIf="!UsersService.editStatus"
+            type="submit"
+            [disabled]="form.invalid"
+            (click)="AddTitle()"
+            class="btn btn-success"
+          >
+            Add
+          </button>
+          <button
+            *ngIf="UsersService.editStatus"
+            type="submit"
+            [disabled]="form.invalid"
+            (click)="SaveTitle()"
+            class="btn btn-success"
+            (click)="closeSav()"
+          >
+            Save
+          </button>
+        </div>
+      </form>
+
+      <div class="income" *ngIf="UsersService.check"></div>
+      <div class="exspense" *ngIf="!UsersService.check"></div>
+    </div>
+  </div>
+</div>
