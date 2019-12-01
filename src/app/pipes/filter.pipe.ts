@@ -1,5 +1,6 @@
 import { Pipe, PipeTransform } from "@angular/core";
-import { User } from "../user.modal";
+import { User } from '../user.modal';
+// import { User } from "../User";
 // import { post } from 'selenium-webdriver/http';
 
 @Pipe({

@@ -14,7 +14,7 @@
   <!--    My filter:  income:UsersService.check -->
     <tbody>
        
-      <tr *ngFor="let user of UsersService.arrCharges | filter:UsersService.search ; let t=index;">
+      <tr *ngFor="let user of UsersService.arrCharges | filter:UsersService.search | income:UsersService.typeSort ; let t=index;">
         <th scope="row">{{t}}</th> 
         <td><div class="box inc" *ngIf="this.user.check" ><i class="fas fa-arrow-circle-up"></i> Income</div>
           <div class="  box exs"  *ngIf="!this.user.check" ><i class="fas fa-arrow-circle-down"></i> Exspense</div>

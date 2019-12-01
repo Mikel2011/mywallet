@@ -6,13 +6,17 @@ import { User } from '../user.modal';
   name: 'income'
 })
 export class IncomePipe implements PipeTransform {
-  transform(arrCharges: User[], check:boolean): User[] {
-    if(check==true){
-      return arrCharges
-    }
-    return arrCharges.filter(user => {
-      return user.check==false
-    });
-  }
+  typeSort: string;
+  transform(arrCharges: User[], type:string): User[]{
+    if (type === 'all') return arrCharges;
+    return arrCharges.filter(element =>
+           element.type === type
+         );
+          }
     
   }
+    
+  
+
+  
+  

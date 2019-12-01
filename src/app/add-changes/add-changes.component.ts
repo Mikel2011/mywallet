@@ -22,6 +22,7 @@ export class AddChangesComponent implements OnInit {
   ) {}
   //створюю валідатор
   ngOnInit() {
+  
     this.form = new FormGroup({
       userTitle: new FormControl(" ", [
         Validators.required,
@@ -29,31 +30,33 @@ export class AddChangesComponent implements OnInit {
       ]),
       userPrice: new FormControl(null, [Validators.required]),
       userData: new FormControl(null, [Validators.required])
+      
     });
   }
 
   AddTitle(): void {
-    const newChar: IUser = new User(
-      1,
-      this.UsersService.title,
-      this.UsersService.price,
-      this.UsersService.date,
-      this.UsersService.check,
-      this.UsersService.checkMoney,
-      this.UsersService.status == this.UsersService.check
-    );
+    const newChar: IUser = this.newMethod();
 
     if (this.UsersService.arrCharges.length > 0) {
       newChar.id = this.UsersService.arrCharges.slice(-1)[0].id + 1; //new id
-    }
+    };
+  
     this.UsersService.arrCharges.push(newChar); // push new user to arr
-
+       
       this.form.reset()
 
        this.UsersService.check
-      ? (this.UsersService.counterL += +newChar.price)
-      : (this.UsersService.counterL -= +newChar.price);
+      ? (this.UsersService.counterL += +newChar.price, newChar.type='income')
+      : (this.UsersService.counterL -= +newChar.price , newChar.type='exspense');
     this.closeModel.nativeElement.click();
+  }
+
+  private newMethod(): IUser {
+   
+    return new User(1, this.UsersService.title, this.UsersService.price, this.UsersService.date, this.UsersService.check, this.UsersService.checkMoney, this.UsersService.status == this.UsersService.check,
+      this.UsersService.typeSort,this.UsersService.type);
+     
+     
   }
 
   SaveTitle() {
@@ -61,7 +64,14 @@ export class AddChangesComponent implements OnInit {
     this.UsersService.thisUser.price = this.UsersService.price;
     this.UsersService.editStatus = false;
     this.UsersService.thisUser.check = this.UsersService.check;
+  
+  this.UsersService.check
+  ? ( this.UsersService.thisUser.type='income')
+  : ( this.UsersService.thisUser.type='exspense');
+
     this.form.reset()
+ 
+
     //change balance
     this.UsersService.check
       ? (this.UsersService.counterL += +this.UsersService.thisUser.price)

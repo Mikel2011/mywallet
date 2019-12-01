@@ -7,4 +7,5 @@
     status:boolean;
     // checkColor: boolean;
     checkMoney:boolean;
+    type:string;
 }

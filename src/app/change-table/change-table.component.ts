@@ -1,6 +1,6 @@
 import { Component, OnInit, ElementRef, ViewChild } from "@angular/core";
 import { IUser } from "../user.interface";
-import { User } from "../user.modal";
+// import { User } from "../User";
 import { UsersService } from "../shared/services/users.service";
 
 @Component({

@@ -24,9 +24,9 @@
 
 <div class="sortable">
   <div class="gr_btn">
-  <button  class="btn btn-success byInc"  (click)="UsersService.byIncome()"  > Income</button>
-  <button class="btn btn-danger byExs"  (click)="UsersService.byExspense()" > Exspense</button>
-  <button  class="btn btn-primary byList"   (click)="UsersService.byList()" >All list</button>
+  <button  class="btn btn-success byInc"  (click)="UsersService.bySort('income')"> Income</button>
+  <button class="btn btn-danger byExs"  (click)="UsersService.bySort('exspense')" > Exspense</button>
+  <button  class="btn btn-primary byList"   (click)="UsersService.bySort('all')" >All list</button>
 </div> </div> 
 <div class="third">
     <div class="btn-add">

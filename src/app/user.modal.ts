@@ -9,5 +9,7 @@ export class User implements IUser {
     public check: boolean,
     public checkMoney: boolean,
     public status: boolean,
+    public typeSort: string,
+   public  type:string,
   ) {}
 }
